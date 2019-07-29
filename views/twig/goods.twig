@@ -1,0 +1,21 @@
+<div class="data">
+    <div class="data_line">
+        <div class="data_line__item">name</div>
+        <div class="data_line__item">date</div>
+    </div>
+    {% for good in goods %}
+        <div class="data_line">
+            <div class="data_line__item"><a href="/good/good?id={{ good.id }}">{{ good.name_item }}</a></div>
+            {% if good.date_item != false %}
+                <div class="data_line__item">{{ good.date_item|date("d/m/Y") }}</div>
+            {% else %}
+                <div class="data_line__item"> --- </div>
+            {% endif %}
+            {% if(good.is_admin != '1') %}
+                <div class="data_line__item data_button"><a href="/good/delete?id={{ good.id }}">Удалить</a></div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div>no good found</div>
+    {% endfor %}
+</div>

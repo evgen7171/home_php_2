@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+<header class="container header">
+    <div class="controllers_main">
+        <div><img src="{{ controllerPic }}" alt="" width="50"></div>
+        <div class="controllers_hide">
+            <a href="/user/users"><img src="/img/1.png" alt="" width="50" class="controller_pic"></a>
+            <a href="/good/goods"><img src="/img/2.png" alt="" width="50" class="controller_pic"></a>
+        </div>
+    </div>
+    <div>{{ menu|raw }}</div>
+    <hr>
+</header>
+<div class="container content">{{ content|raw }}</div>
+<script src="/js/js.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,13 @@
+<form action="/good/insert" method="post" id="form_add">
+    {% for prop in properties %}
+        {% if prop != 'id' %}
+            <input type="text"
+                   placeholder="{% if prop=='name_item' %}name{% else %}{{ prop }}{% endif %}"
+                   name="{{ prop }}"
+                   class="data_add__item">
+        {% endif %}
+    {% else %}
+        Поля отсутствуют
+    {% endfor %}
+    <input type="submit" value="Добавить" id="form_add__button">
+</form>
