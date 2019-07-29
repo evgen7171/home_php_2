@@ -1,0 +1,21 @@
+<div class="data">
+    <div class="data_line">
+        <div class="data_line__item">login</div>
+        <div class="data_line__item">date</div>
+    </div>
+    {% for user in users %}
+        <div class="data_line">
+            <div class="data_line__item"><a href="/user/user?id={{ user.id }}">{{ user.login }}</a></div>
+            {% if user.date_item != false %}
+                <div class="data_line__item">{{ user.date_item|date("d/m/Y") }}</div>
+            {% else %}
+                <div class="data_line__item"> --- </div>
+            {% endif %}
+            {% if(user.is_admin != '1') %}
+                <div class="data_line__item data_button"><a href="/user/delete?id={{ user.id }}">Удалить</a></div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div>no user found</div>
+    {% endfor %}
+</div>

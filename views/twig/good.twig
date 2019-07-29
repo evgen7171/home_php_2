@@ -1,0 +1,22 @@
+<div class="data_key-value">
+    {% for key, value in good %}
+        <div class="data_key-value__item">
+            <div class="key">{{ key }}</div>
+            <div class="{{ key=='id'?'value_id':'value' }}" data-key="{{ key }}">{{ value }}</div>
+        </div>
+    {% else %}
+        {{ "now"|date(("d/m/Y")) }}
+    {% endfor %}
+    {% if good %}
+        <div class="data_key-value__button">
+            <div class="key">
+                <span id="data_button__empty">&nbsp;</span>
+                <a href="#" id="data_button__cancel">Отмена</a>
+            </div>
+            <div class="button">
+                <a href="#" id="data_button__edit">Редактировать</a>
+                <a href="#" id="data_button__save" data-controller="good">Сохранить</a></div>
+        </div>
+    {% endif %}
+</div>
+

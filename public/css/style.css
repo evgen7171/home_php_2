@@ -1,0 +1,69 @@
+
+.container {
+    width: 800px;
+}
+
+.data_key-value {
+    display: flex;
+}
+
+.data_key-value__item {
+    border-right: 1px solid black;
+}
+
+.data_key-value__button .key,
+.data_key-value__button .button {
+    padding: 5px;
+}
+
+.data_key-value__item div {
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+.data_line {
+    display: flex;
+}
+
+.data_line__item {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    min-width: 100px;
+    padding: 5px;
+}
+
+.data_button {
+    border: none;
+}
+
+#data_button__save,
+#data_button__cancel {
+    display: none;
+}
+
+.data_key-value__item {
+    width: 100px;
+}
+
+.data_add__item {
+    width: 100px;
+}
+
+.form_add__error {
+    border: 1px solid red;
+}
+
+.controllers_main {
+    display: flex;
+}
+
+.controllers_main:hover .controllers_hide {
+    display: block;
+}
+
+.controllers_hide {
+    display: none;
+}
+.controller_pic:hover{
+    background-color: #ccc;
+}
