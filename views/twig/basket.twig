@@ -1,0 +1,25 @@
+{% extends 'layouts/main.twig' %}
+
+{% block title %}Товары{% endblock %}
+
+{% block body %}
+    {% set sum = 0 %}
+    {% for good_id, good in goods %}
+        {% set sum = sum + good.price * good.count %}
+        продукт:{{ good.name }} цена:{{ good.price }} количество:{{ good.count }}<br>
+        сумма по данному продукту: {{ good.price * good.count }}
+        <a href="/basket/addBasket?id={{ good_id }}">
+            Добавить в корзину
+        </a>
+        <a href="/basket/removeBasket?id={{ good_id }}">
+            Удалить из корзины
+        </a>
+        <hr>
+    {% endfor %}
+    сумма итого: {{ sum }}&nbsp;
+    <a href="/basket/save?id={{ user_id }}">
+        Подтвердить заказ
+    </a>
+    {{ message_content }}
+    <hr>
+{% endblock %}

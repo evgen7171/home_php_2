@@ -1,0 +1,11 @@
+{% extends 'layouts/main.twig' %}
+
+{% block title %}Авторизация{% endblock %}
+
+{% block body %}
+    <form action="/user/auth" method="post">
+        <input type="text" name="login" placeholder="введите имя пользователя">
+        <input type="text" name="password" placeholder="введите пароль">
+        <input type="submit">
+    </form>
+{% endblock %}
