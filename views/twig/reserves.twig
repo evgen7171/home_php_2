@@ -1,0 +1,35 @@
+{% extends 'layouts/main.twig' %}
+
+{% block title %}Товары{% endblock %}
+
+{% block body %}
+    {% if login == 'admin' %}
+        <form action="/basket/reserves" method="post">
+            Прошлые заказы пользователя:
+            <select name="selectId" id="">
+                {% for user in users %}
+                    <option value="{{ user.id }}" {% if user.selected %}selected{% endif %}>{{ user.login }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Выбрать">
+        </form>
+        <hr>
+    {% else %}
+        Прошлые заказы
+    {% endif %}
+    {% for reserve in reserves %}
+        <div style="background-color: #e2e2e2;">
+            {% set sum = 0 %}
+            Заказ №{{ reserve.id }}<br>
+            {% set goods = reserve.goods %}
+            {% for good_id, good in goods %}
+                {% set sum = sum + good.count * good.price %}
+                ID продукта: {{ good_id }} Продукт: {{ good.name }}<br>
+                {{ good.count }}шт. x {{ good.price }} = {{ good.count * good.price }}
+                <hr>
+            {% endfor %}
+            Итого по заказу: {{ sum }}
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}

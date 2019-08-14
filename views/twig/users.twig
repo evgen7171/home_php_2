@@ -1,0 +1,19 @@
+{% extends 'layouts/main.twig' %}
+
+{% block title %}Пользователи{% endblock %}
+
+{% block body %}
+    {% for user in users %}
+        <a href="/user/user?id={{user.id}}">
+            {{user.fio}}
+        </a> <br>
+        {% if user.is_admin == 0 %}
+            <a href="/user/delete?id={{ user.id }}">
+                Удалить
+            </a>
+        {% endif %}
+        <hr>
+    {% else %}
+        <li><em>no user found</em></li>
+    {% endfor %}
+{% endblock %}
